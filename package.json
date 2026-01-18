@@ -1,0 +1,16 @@
+{
+  "name": "cms",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && php artisan serve",
+    "dev:frontend": "cd frontend && quasar dev",
+    "install:backend": "cd backend && composer install",
+    "install:frontend": "cd frontend && npm install",
+    "build:frontend": "cd frontend && quasar build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
