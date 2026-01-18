@@ -1,0 +1,14 @@
+.env
+.git
+.gitignore
+node_modules
+vendor
+composer.lock
+storage/logs/*.log
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+.DS_Store
+*.md
+tests/
+.phpunit.result.cache

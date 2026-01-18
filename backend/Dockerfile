@@ -20,17 +20,20 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy composer files first
-COPY composer.json composer.lock ./
-
-# Install dependencies (don't copy .env yet to leverage Docker cache)
-RUN composer install --no-interaction --no-dev --optimize-autoloader --no-scripts
-
-# Copy existing application directory
+# Copy everything (vendor will be installed fresh in container)
 COPY . .
 
-# Run post-install scripts
-RUN composer dump-autoload --optimize
+# Remove existing vendor and reinstall
+RUN rm -rf vendor composer.lock
+
+# Install dependencies fresh (no lock file)
+RUN composer install --no-interaction --optimize-autoloader
+
+# Copy .env.example to .env for Docker
+RUN cp .env.example .env
+
+# Generate application key
+RUN php artisan key:generate
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
@@ -39,4 +42,4 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 EXPOSE 8000
 
 # Start Laravel
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000
+CMD php artisan migrate --force && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=8000
