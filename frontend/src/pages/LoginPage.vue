@@ -70,9 +70,10 @@ const onSubmit = async () => {
 
     router.push('/')
   } catch (error) {
+    console.error(error)
     $q.notify({
       type: 'negative',
-      message: error.response?.data?.message || 'Login fehlgeschlagen'
+      message: 'Login fehlgeschlagen'
     })
   } finally {
     loading.value = false

@@ -63,7 +63,7 @@
       <q-card style="min-width: 800px">
         <q-card-section>
           <div class="text-h6">
-            {{ editMode ? `${form.name || 'Kunde'} bearbeiten` : 'Neuen Kunden anlegen' }}
+            {{ editMode ? `${form.first_name} ${form.name} bearbeiten` : 'Neuen Kunden anlegen' }}
           </div>
         </q-card-section>
 
@@ -316,14 +316,14 @@ async function saveCustomer() {
       await api.put(`/customers/${form.value.id}`, form.value)
       $q.notify({
         type: 'positive',
-        message: `<strong>${form.value.name || 'Kunde'}</strong> erfolgreich aktualisiert`,
+        message: `<strong>${form.value.first_name} ${form.value.name}</strong>erfolgreich aktualisiert`,
         html: true
       })
     } else {
       await api.post('/customers', form.value)
       $q.notify({
         type: 'positive',
-        message: `<strong>${form.value.name || 'Kunde'}</strong> erfolgreich angelegt`,
+        message: `<strong>${form.value.first_name} ${form.value.name}</strong> erfolgreich angelegt`,
         html: true
       })
     }
@@ -344,7 +344,7 @@ async function saveCustomer() {
 function confirmDelete(customer) {
   $q.dialog({
     title: 'Löschen bestätigen',
-    message: `Sind Sie sicher, dass Sie <strong>${customer.name || 'Kunde'}</strong> löschen möchten?`,
+    message: `Sind Sie sicher, dass Sie <strong>${customer.first_name} ${customer.name}</strong> löschen möchten?`,
     html: true,
     cancel: {
       label: 'Abbrechen',
@@ -362,7 +362,7 @@ function confirmDelete(customer) {
       await api.delete(`/customers/${customer.id}`)
       $q.notify({
         type: 'positive',
-        message: `<strong>${customer.name || "Kunde"}</strong> erfolgreich gelöscht`,
+        message: `<strong>${customer.first_name} ${customer.name}</strong> erfolgreich gelöscht`,
         html: true
 
       })
