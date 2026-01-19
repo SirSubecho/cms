@@ -49,7 +49,7 @@ class CustomerController extends Controller
             'first_name' => 'required|string|max:255',
             'email' => 'required|email|unique:customers',
             'phone' => 'nullable|string|max:20',
-            'address' => 'nullable|string|max:255',
+            'street' => 'nullable|string|max:255',
             'postal_code' => 'nullable|string|max:20',
             'city' => 'nullable|string|max:100',
         ]);
@@ -69,7 +69,7 @@ class CustomerController extends Controller
             'first_name' => 'sometimes|required|string|max:255',
             'email' => 'sometimes|required|email|unique:customers,email,' . $customer->id,
             'phone' => 'nullable|string|max:20',
-            'address' => 'nullable|string|max:255',
+            'street' => 'nullable|string|max:255',
             'postal_code' => 'nullable|string|max:20',
             'city' => 'nullable|string|max:100',
         ]);

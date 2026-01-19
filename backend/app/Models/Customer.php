@@ -13,7 +13,7 @@ class Customer extends Model
         'first_name',
         'email',
         'phone',
-        'address',
+        'street',
         'postal_code',
         'city',
     ];
