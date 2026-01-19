@@ -19,7 +19,7 @@ class AuthController extends Controller
 
         if (!Auth::attempt($credentials)) {
             throw ValidationException::withMessages([
-                'email' => ['Die bereitgestellten Anmeldeinformationen sind ungültig.'],
+                'email' => ['credentials are incorrect'],
             ]);
         }
 
@@ -35,7 +35,7 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
-        return response()->json(['message' => 'Erfolgreich abgemeldet.']);
+        return response()->json(['message' => 'logout successful']);
     }
 
     public function user(Request $request)
