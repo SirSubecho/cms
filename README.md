@@ -97,7 +97,7 @@ Use the credentials you set in `backend/.env`:
 ### Backend
 - **Laravel 12** - PHP Framework
 - **Laravel Sanctum** - API Authentication
-- 
+
 ### Frontend
 - **Quasar 2** - Vue 3 Framework
 - **Vue 3** - Progressive JavaScript Framework
