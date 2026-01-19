@@ -22,6 +22,11 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/LoginPage.vue') }
     ]
+  },
+
+  {
+    path: '/:catchAll(.*)*',
+    component: () => import('pages/ErrorNotFound.vue')
   }
 ]
 

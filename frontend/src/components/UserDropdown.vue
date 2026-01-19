@@ -18,7 +18,7 @@
         <q-separator />
 
         <q-item clickable v-close-popup @click="logout">
-          <q-item-section>Logout</q-item-section>
+          <q-item-section>Ausloggen</q-item-section>
         </q-item>
       </q-list>
     </q-menu>

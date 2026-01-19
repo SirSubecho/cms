@@ -83,10 +83,10 @@
               <div class="col">
                 <q-input
                   v-model="form.name"
-                  label="Name"
+                  label="Nachname"
                   outlined
                   hide-bottom-space
-                  :rules="[val => !!val || 'Name wird benötigt']"
+                  :rules="[val => !!val || 'Nachname wird benötigt']"
                 />
               </div>
             </div>
@@ -95,7 +95,7 @@
               <div class="col">
                 <q-input
                   v-model="form.email"
-                  label="Email"
+                  label="E-Mail"
                   type="email"
                   outlined
                   hide-bottom-space
@@ -115,7 +115,7 @@
               <div class="col">
                 <q-input
                   v-model="form.street"
-                  label="Straße"
+                  label="Anschrift"
                   outlined
                 />
               </div>
@@ -190,14 +190,14 @@ const columns = [
   },
   {
     name: 'email',
-    label: 'Email',
+    label: 'E-Mail',
     field: 'email',
     sortable: true,
     align: 'left'
   },
   {
     name: 'phone',
-    label: 'Phone',
+    label: 'Telefon',
     field: 'phone',
     align: 'left'
   },
