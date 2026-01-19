@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.0.1",
   "description": "CMS Frontend ",
-  "productName": "frontend",
+  "productName": "CMS",
   "author": "Stephan Mau <git@subecho.net>",
   "type": "module",
   "private": true,
