@@ -209,7 +209,7 @@ const columns = [
   },
   {
     name: 'postal_code',
-    label: 'Postleitzahl',
+    label: 'PLZ',
     field: 'postal_code',
     align: 'left'
   },
